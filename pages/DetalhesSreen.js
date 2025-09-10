@@ -211,7 +211,7 @@ const DetalhesScreen = ({ route, navigation }) => {
               </View>
             ) : (
               <>
-                <Card.Cover source={typeof shirt.image === 'string' ?  shirt.image  : shirt.image} style={styles.cardImage} />
+                <Card.Cover source={ shirt.image} style={styles.cardImage} />
                 <Card.Content style={styles.content}>
                   <Title style={styles.cardTitle}>{shirt.name}</Title>
                   <Paragraph style={styles.cardDescription}>
@@ -269,7 +269,17 @@ const DetalhesScreen = ({ route, navigation }) => {
                   >
                     Voltar
                   </Button>
-                  <Button
+                 
+                  <TouchableOpacity
+                    style={styles.likeButton}
+                    onPress={() => Likee(shirt)}
+                    activeOpacity={0.7}
+                  >
+                    <MaterialIcons name={liked ? "favorite" : "favorite-border"} size={40} color={liked ? "red" : "gray"} />
+                  </TouchableOpacity>
+                </Card.Actions>
+                <Card.Actions>
+ <Button
                     mode="contained"
                     onPress={() => setIsEditing(true)}
                     style={styles.button}
@@ -283,13 +293,6 @@ const DetalhesScreen = ({ route, navigation }) => {
                   >
                     Deletar
                   </Button>
-                  <TouchableOpacity
-                    style={styles.likeButton}
-                    onPress={() => Likee(shirt)}
-                    activeOpacity={0.7}
-                  >
-                    <MaterialIcons name={liked ? "favorite" : "favorite-border"} size={40} color={liked ? "red" : "gray"} />
-                  </TouchableOpacity>
                 </Card.Actions>
               </>
             )}
@@ -353,7 +356,7 @@ const DetalhesScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   gradient: { flex: 1 },
   container: { flex: 1, padding: 15 },
-  card: { borderRadius: 15, elevation: 5, backgroundColor: "rgba(255, 255, 255, 0.95)", marginTop: 130 },
+  card: { borderRadius: 15, elevation: 5, backgroundColor: "rgba(255, 255, 255, 0.95)", marginTop: 60 },
   cardImage: { borderTopLeftRadius: 15, borderTopRightRadius: 15 },
   content: { padding: 15 },
   cardTitle: { fontWeight: "bold", fontSize: 20, color: "#212121" },

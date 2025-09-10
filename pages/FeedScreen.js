@@ -144,7 +144,7 @@ const FeedScreen = () => {
               </View>
             )}
 
-            <ScrollView horizontal style={styles.header}>
+            <View  style={styles.header}>
               <View style={styles.headerButtons}>
                 <Button
                   mode="contained"
@@ -166,7 +166,7 @@ const FeedScreen = () => {
                   Adicionar
                 </Button>
               </View>
-            </ScrollView>
+            </View>
 
             {/* Campo de busca único */}
             <View style={styles.searchContainer}>
@@ -200,10 +200,12 @@ const styles = StyleSheet.create({
   gradient: { flex: 1 },
   header: {
     flexDirection: 'row',
+    justifyContent: 'space-around',
     alignItems: 'center',
     marginBottom: 15,
+    marginTop:15,
   },
-  userHeader: { flexDirection: 'row', alignItems: 'center' },
+  userHeader: { flexDirection: 'row', alignItems: 'center', padding:20, },
   userLogin: { flexDirection: 'row', alignItems: 'center' },
   userName: {
     color: 'white',
